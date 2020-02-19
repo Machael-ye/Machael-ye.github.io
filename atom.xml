@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bin</title>
+  
+  <subtitle>一个影子</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-02-18T12:42:07.794Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Bin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可复制的领导力-读书笔记</title>
+    <link href="http://yoursite.com/2020/02/15/%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B/"/>
+    <id>http://yoursite.com/2020/02/15/%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B/</id>
+    <published>2020-02-15T13:03:14.297Z</published>
+    <updated>2020-02-18T12:42:07.794Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;团体学习，避免写的东西丢失了。故留此。&lt;/p&gt;
+&lt;p&gt;2020-2-14 情人节
+        
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="领导力" scheme="http://yoursite.com/tags/%E9%A2%86%E5%AF%BC%E5%8A%9B/"/>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
