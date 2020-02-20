@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Bin</title>
   
-  <subtitle>一个行业的兴衰</subtitle>
+  <subtitle>一个行业的跌宕起伏</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-19T09:12:59.658Z</updated>
+  <updated>2020-02-20T02:10:41.438Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/02/19/%E4%B8%A4%E7%A7%8D%E7%BB%8F%E5%85%B8%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2020/02/19/%E4%B8%A4%E7%A7%8D%E7%BB%8F%E5%85%B8%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-02-19T08:46:49.000Z</published>
-    <updated>2020-02-19T09:12:59.658Z</updated>
+    <updated>2020-02-20T02:10:41.438Z</updated>
     
     <summary type="html">
     
@@ -43,7 +43,7 @@
     <link href="http://yoursite.com/2020/02/19/%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96%E5%A1%91%E9%80%A0/"/>
     <id>http://yoursite.com/2020/02/19/%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96%E5%A1%91%E9%80%A0/</id>
     <published>2020-02-19T02:53:23.338Z</published>
-    <updated>2020-02-19T09:17:18.638Z</updated>
+    <updated>2020-02-20T02:15:41.105Z</updated>
     
     <summary type="html">
     
@@ -51,7 +51,6 @@
 &lt;blockquote&gt;
 &lt;p&gt;第87页&lt;br&gt;管理决策-两个先决条件。其中说道：“我们不得不改变看法，不再认为公司是营销产品的工具，而开始认为产品是推销公司的工具。&lt;br&gt;诈一看，确实不好理解。然而细读之下却发现，反映了一个重要的管理学事实。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h5 id=&quot;一-公司是营销产品的工具&quot;&gt;&lt;a href=&quot;#一-公司是营销产品的工具&quot; class=&quot;headerlink&quot; title=&quot;(一)公司是营销产品的工具&quot;&gt;&lt;/a&gt;(一)公司是营销产品的工具&lt;/h5&gt;
     
     </summary>
     
@@ -70,12 +69,12 @@
     <link href="http://yoursite.com/2020/02/15/%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B/"/>
     <id>http://yoursite.com/2020/02/15/%E5%8F%AF%E5%A4%8D%E5%88%B6%E7%9A%84%E9%A2%86%E5%AF%BC%E5%8A%9B/</id>
     <published>2020-02-15T13:03:14.297Z</published>
-    <updated>2020-02-19T10:10:53.257Z</updated>
+    <updated>2020-02-20T03:39:33.193Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;此乃读书笔记，团体学习，避免写的东西丢失了。故留此。&lt;/p&gt;
-&lt;h5 id=&quot;2020-2-14-情人节-读第一章&quot;&gt;&lt;a href=&quot;#2020-2-14-情人节-读第一章&quot; class=&quot;headerlink&quot; title=&quot;2020-2-14 情人节 读第一章&quot;&gt;&lt;/a&gt;2020-2-14 情人节 读第一章&lt;/h5&gt;&lt;p&gt;1、领导力的定义，不如说成是影响力，通过影响的方式，带领一群人完成组织目标的能力。领导力应该是从下往上的，而不是从上往下。强要求最终下属能完成，这不是领导力。领导力是对下属有赋能，激发下属能动性，最终下属有成长，而组织目标又能完成的能力。&lt;br&gt;2、具体的管理动作：做分解：部署任务说5遍：描述任务、要求重复、回答目的、可能遇见的难点、建议和想法。这是布置任务的部分。其实对于我们的业务来说，就是把任务说清楚，目的讲明白，做好细致的分解和应对，再加上检查。最重要的不是给大家任务和目标，而是要在过程中支持大家，保证大家在对的方向上成长。&lt;/p&gt;
+      &lt;p&gt;此乃读书笔记。内部团队学习搞每日分享，好不容易写的东西可不能丢。&lt;/p&gt;
+&lt;h5 id=&quot;2020-2-14-情人节-读第一章&quot;&gt;&lt;a href=&quot;#2020-2-14-情人节-读第一章&quot; class=&quot;headerlink&quot; title=&quot;2020-2-14 情人节 读第一章&quot;&gt;&lt;/a&gt;2020-2-14 情人节 读第一章&lt;/h5&gt;&lt;p&gt;1、领导力的定义，不如说是影响力——通过影响的方式，带领一群人完成组织目标的能力。领导力应该是从下往上的，而不是从上往下。强要求最终下属能完成，这不是领导力。领导力是对下属有赋能，激发下属能动性，最终下属有成长，而组织目标又能完成的能力。&lt;br&gt;2、具体的管理动作：做分解：部署任务说5遍：描述任务、要求重复、回答目的、可能遇见的难点、建议和想法。这是布置任务的部分。其实对于我们的业务来说，就是把任务说清楚，目的讲明白，做好细致的分解和应对，再加上检查。最重要的不是给大家任务和目标，而是要在过程中支持大家，保证大家在对的方向上成长。&lt;/p&gt;
     
     </summary>
     
