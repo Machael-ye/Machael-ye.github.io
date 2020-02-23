@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-23T04:05:42.720Z</updated>
+  <updated>2020-02-23T10:11:12.966Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,26 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2020/02/23/test/"/>
-    <id>http://yoursite.com/2020/02/23/test/</id>
-    <published>2020-02-23T04:05:42.000Z</published>
-    <updated>2020-02-23T04:05:42.720Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>一个人的天路</title>
     <link href="http://yoursite.com/2020/02/23/tianlualone/"/>
     <id>http://yoursite.com/2020/02/23/tianlualone/</id>
     <published>2020-02-23T03:44:57.000Z</published>
-    <updated>2020-02-23T04:08:04.390Z</updated>
+    <updated>2020-02-23T10:11:12.966Z</updated>
     
     <summary type="html">
     
@@ -44,7 +29,7 @@
       
         
         
-          &lt;img src=&quot;D:\github\binblog\source\_posts\tianlualone\tl01.jpg&quot; style=&quot;zoom:50%;&quot;
+          &lt;img src=&quot;/2020/02/23/tianlualone/tl01.png&quot; class
         
       
     
