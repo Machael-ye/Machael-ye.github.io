@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-23T10:11:12.966Z</updated>
+  <updated>2020-02-23T10:44:57.157Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>远方到底有什么</title>
+    <link href="http://yoursite.com/2020/02/23/yuanfang/"/>
+    <id>http://yoursite.com/2020/02/23/yuanfang/</id>
+    <published>2020-02-23T10:25:31.000Z</published>
+    <updated>2020-02-23T10:44:57.157Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;“生活不止眼前的苟且，还有诗和远方”。如果只是谈诗歌和远方，那它应该是极美的。我们总是在追逐并不拥有的东西，或是想要得到的。&lt;/p&gt;
+&lt;h5 id=&quot;（一）远方的工作——祥子的新马车&quot;&gt;&lt;a href=&quot;#（一）远方的工作——祥子的新马车&quot; class=&quot;headerlink&quot; title=&quot;（一）远方的工作——祥子的新马车&quot;&gt;&lt;/a&gt;（一）远方的工作——祥子的新马车&lt;/h5&gt;&lt;p&gt;记得骆驼祥子里，有一句描述祥子的状态：“&lt;strong&gt;他感到疲乏，可是很痛快的，值得骄傲的，一种疲乏，如同骑着名马跑了几十里那样&lt;/strong&gt;”。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="biji" scheme="http://yoursite.com/categories/biji/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>一个人的天路</title>
     <link href="http://yoursite.com/2020/02/23/tianlualone/"/>
     <id>http://yoursite.com/2020/02/23/tianlualone/</id>
     <published>2020-02-23T03:44:57.000Z</published>
-    <updated>2020-02-23T10:11:12.966Z</updated>
+    <updated>2020-02-23T10:45:37.250Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;img src=&quot;/2020/02/23/tianlualone/tl01.png&quot; class
-        
-      
+      &lt;img src=&quot;/2020/02/23/tianlualone/tl01.png&quot; class title=&quot;[天路在前方]&quot;&gt;
+&lt;p&gt;我有很多关于长途旅行的梦想，比如西藏、青海、环东戴河。目的地其实也不算远，算是一种情怀吧。以前总是爱骑自行车跑，但自从有了摩托车之后，这些目的地一下子变近了。&lt;/p&gt;
     
     </summary>
     
@@ -94,7 +109,7 @@
     <link href="http://yoursite.com/2020/02/15/ledership/"/>
     <id>http://yoursite.com/2020/02/15/ledership/</id>
     <published>2020-02-15T13:03:14.297Z</published>
-    <updated>2020-02-22T09:31:53.516Z</updated>
+    <updated>2020-02-23T10:43:42.110Z</updated>
     
     <summary type="html">
     
