@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-20T02:10:41.438Z</updated>
+  <updated>2020-02-23T04:05:42.720Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://yoursite.com/2020/02/23/test/"/>
+    <id>http://yoursite.com/2020/02/23/test/</id>
+    <published>2020-02-23T04:05:42.000Z</published>
+    <updated>2020-02-23T04:05:42.720Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一个人的天路</title>
+    <link href="http://yoursite.com/2020/02/23/tianlualone/"/>
+    <id>http://yoursite.com/2020/02/23/tianlualone/</id>
+    <published>2020-02-23T03:44:57.000Z</published>
+    <updated>2020-02-23T04:08:04.390Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;img src=&quot;D:\github\binblog\source\_posts\tianlualone\tl01.jpg&quot; style=&quot;zoom:50%;&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="youji" scheme="http://yoursite.com/categories/youji/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>房产经纪行业的两种经典模式</title>
@@ -69,7 +109,7 @@
     <link href="http://yoursite.com/2020/02/15/ledership/"/>
     <id>http://yoursite.com/2020/02/15/ledership/</id>
     <published>2020-02-15T13:03:14.297Z</published>
-    <updated>2020-02-21T06:49:25.412Z</updated>
+    <updated>2020-02-22T09:31:53.516Z</updated>
     
     <summary type="html">
     
