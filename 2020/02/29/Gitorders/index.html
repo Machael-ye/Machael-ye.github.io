@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="gitbush的学习笔记整理。也可以参考：https:&#x2F;&#x2F;baoyuzhang.github.io&#x2F;  里面有个（一）（二）（三）。此处的命令是根据里面的学习形成的学习记录。 （一）基础部分   命令格式 含义内容    cd “” 文件夹名字   hexo init 初始化当前文件夹为版本库   hexo g 即生成静态文件，会更新到 public 文件夹中   hexo s 开启内部预览">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于git Bash的命令行：笔记">
+<meta property="og:url" content="http://yoursite.com/2020/02/29/Gitorders/index.html">
+<meta property="og:site_name" content="Bins">
+<meta property="og:description" content="gitbush的学习笔记整理。也可以参考：https:&#x2F;&#x2F;baoyuzhang.github.io&#x2F;  里面有个（一）（二）（三）。此处的命令是根据里面的学习形成的学习记录。 （一）基础部分   命令格式 含义内容    cd “” 文件夹名字   hexo init 初始化当前文件夹为版本库   hexo g 即生成静态文件，会更新到 public 文件夹中   hexo s 开启内部预览">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-29T13:47:11.000Z">
+<meta property="article:modified_time" content="2020-02-29T13:50:55.034Z">
+<meta property="article:author" content="Bin">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Git Bash">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/29/Gitorders/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>关于git Bash的命令行：笔记 | Bins</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?831ac77e3d6101966e21931331d59941";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Bins" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个行业的跌宕起伏</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ol"></i>时间线</a>
+
+  </li>
+        <li class="menu-item menu-item-biji">
+
+    <a href="/categories/biji/" rel="section"><i class="fa fa-fw fa-pencil"></i>想法</a>
+
+  </li>
+        <li class="menu-item menu-item-youji">
+
+    <a href="/categories/youji/" rel="section"><i class="fa fa-fw fa-leaf"></i>游记</a>
+
+  </li>
+        <li class="menu-item menu-item-zawen">
+
+    <a href="/categories/zawen/" rel="section"><i class="fa fa-fw fa-film"></i>杂文</a>
+
+  </li>
+        <li class="menu-item menu-item-ma">
+
+    <a href="/categories/ma/" rel="section"><i class="fa fa-fw fa-globe"></i>码</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/Gitorders/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bin.jpg">
+      <meta itemprop="name" content="Bin">
+      <meta itemprop="description" content="看的太远，连自己也追不上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bins">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于git Bash的命令行：笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-29 21:47:11 / 修改时间：21:50:55" itemprop="dateCreated datePublished" datetime="2020-02-29T21:47:11+08:00">2020-02-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ma/" itemprop="url" rel="index">
+                    <span itemprop="name">ma</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/29/Gitorders/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/Gitorders/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>gitbush的学习笔记整理。也可以参考：<a href="https://baoyuzhang.github.io/" target="_blank" rel="noopener">https://baoyuzhang.github.io/</a>  里面有个（一）（二）（三）。此处的命令是根据里面的学习形成的学习记录。</p>
+<h2 id="（一）基础部分"><a href="#（一）基础部分" class="headerlink" title="（一）基础部分"></a>（一）基础部分</h2><table>
+<thead>
+<tr>
+<th>命令格式</th>
+<th>含义内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cd “”</td>
+<td>文件夹名字</td>
+</tr>
+<tr>
+<td>hexo init</td>
+<td>初始化当前文件夹为版本库</td>
+</tr>
+<tr>
+<td>hexo g</td>
+<td>即生成静态文件，会更新到 public 文件夹中</td>
+</tr>
+<tr>
+<td>hexo s</td>
+<td>开启内部预览</td>
+</tr>
+<tr>
+<td>hexo d</td>
+<td>布署到远端服务器</td>
+</tr>
+<tr>
+<td>CTRL+C</td>
+<td>退出当前进程</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>显示当前目标</td>
+</tr>
+<tr>
+<td>ping github.com</td>
+<td>获取IP地址</td>
+</tr>
+</tbody></table>
+<h2 id="（二）-库内的文件操作版本回退"><a href="#（二）-库内的文件操作版本回退" class="headerlink" title="（二） 库内的文件操作版本回退"></a>（二） 库内的文件操作版本回退</h2><table>
+<thead>
+<tr>
+<th>命令格式</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git add file</td>
+<td>将file添加到暂存区</td>
+</tr>
+<tr>
+<td>git commit -m “提交说明”</td>
+<td>将暂存区中所有文件提交到仓库</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看当前目录中是否有文件未提交</td>
+</tr>
+<tr>
+<td>git diff file</td>
+<td>查看file文件修改内容，注意只能是库内的文件</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>查看历史记录</td>
+</tr>
+<tr>
+<td>git log –pretty=oneline</td>
+<td>查看历史记录（简洁版）</td>
+</tr>
+<tr>
+<td>git reset –hard HEAD^</td>
+<td>退回到上个版本</td>
+</tr>
+<tr>
+<td>git reset –hard HEAD^^</td>
+<td>退回到上上个版本</td>
+</tr>
+<tr>
+<td>git reset –hard HEAD~100</td>
+<td>退回到前100个版本</td>
+</tr>
+<tr>
+<td>git reflog</td>
+<td>获取全部版本号，可以根据版本号来回退</td>
+</tr>
+<tr>
+<td>git reset –hard 版本号</td>
+<td>退回到版本号的版本</td>
+</tr>
+<tr>
+<td>cat file</td>
+<td>查看文件内容</td>
+</tr>
+</tbody></table>
+<p>备注：版本是针对库的。并且认提交动作，而不认修改动作。如果修改了N次并提交，那只认一次，也就是会只有一个版本。</p>
+<h2 id="（三）文件-章的增删改撤恢复"><a href="#（三）文件-章的增删改撤恢复" class="headerlink" title="（三）文件/章的增删改撤恢复"></a>（三）文件/章的增删改撤恢复</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout  -- file</span><br></pre></td></tr></table></figure>
+<p>#丢弃file文件在工作区的修改（工作区-暂存区-版本库，回到上一阶段的修改）a.工作区修改后没有add到暂存区：回到和版本库一样的状态；b.工作区修改后add到暂存区后又有修改：回到添加暂存区后的状态。也就是优先级为：暂存区 &gt; 版本库 。文件恢复 | 如果没有–，则为创建分支命令好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm file</span><br></pre></td></tr></table></figure>
+<p>删除工作区中的file文件<br>a.想要删除版本库中的file文件：直接commit掉；<br>b.想要从版本库中删除file文件：git checkout – file </p>
+<p>要删除版本库中的文件，可以先在工作区删掉git checkout再git commit提交；a中者直接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch file   #新建文件，在文件夹下面新建一个文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章名&quot;  #会新建一篇文章，带有既定格式的，而非单纯的建一个文件.此命令只要主库-_posts中生成新文件</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="（四）-关于分支"><a href="#（四）-关于分支" class="headerlink" title="（四） 关于分支"></a>（四） 关于分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch  #创建分支</span><br><span class="line">git checkout #切换分支</span><br></pre></td></tr></table></figure>
+
+<h2 id="（五）关于主题的"><a href="#（五）关于主题的" class="headerlink" title="（五）关于主题的"></a>（五）关于主题的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#更新next主题</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next-reloaded</span><br></pre></td></tr></table></figure>
+
+<h2 id="（六）升级HEXO包"><a href="#（六）升级HEXO包" class="headerlink" title="（六）升级HEXO包"></a>（六）升级HEXO包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm-check   #下载</span><br><span class="line">npm-check   #检查版本</span><br><span class="line">npm install -g npm-upgrade #更新</span><br><span class="line">npm update &lt;name&gt; -g   #更新全局包</span><br><span class="line">npm update &lt;name&gt; --save   #更新生产环境依赖包</span><br><span class="line">save参数：npm install X –save:</span><br><span class="line">	会把X包安装到node_modules目录中</span><br><span class="line">	会在package.json的dependencies属性下添加X</span><br><span class="line">	之后运行npm install命令时，会自动安装X到node_modules目录中</span><br><span class="line">	如果不加save参数的话，之后把X包安装到node_modules目录中，不会添加到			dependencies文件中。再查看hexo文件夹下面的dependencies文件,可以看到hexo的版本已经更新了。</span><br></pre></td></tr></table></figure>
+
+<h2 id="（七）页面小工具"><a href="#（七）页面小工具" class="headerlink" title="（七）页面小工具"></a>（七）页面小工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt; !-- more --&gt;</span><br><span class="line">#放在文中合适的地方，可以截断页面</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置文章不在首页显示（我用的是新版next主题）"><a href="#设置文章不在首页显示（我用的是新版next主题）" class="headerlink" title="设置文章不在首页显示（我用的是新版next主题）"></a>设置文章不在首页显示（我用的是新版next主题）</h3><p>1、在文章头新建一个变量：notshow。也可以在post模板中改，以后可以自动生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: 这是文章标题</span><br><span class="line">notshow: true</span><br></pre></td></tr></table></figure>
+
+<p>2、在主题文件夹下，<strong>layout\index.swig</strong>，定位到post代码块：<br>增加一个if条件，有批注的两行是我修改的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;posts-expand&quot;&gt;</span><br><span class="line">  &#123;%- for post in page.posts.toArray() %&#125;</span><br><span class="line">      &#123;% if post.notshow !&#x3D; true  %&#125; 	#增加了一个条件，判断是否在首页显示</span><br><span class="line">           &#123;&#123; partial(&#39;_macro&#x2F;post.swig&#39;, &#123;post: post, is_index: true&#125;) &#125;&#125;</span><br><span class="line">      &#123;% endif %&#125; 						#结束if</span><br><span class="line">  &#123;%- endfor %&#125;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置简写命令"><a href="#配置简写命令" class="headerlink" title="配置简写命令"></a>配置简写命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">git config --global -e</span><br><span class="line">[alias]</span><br><span class="line">    st &#x3D; status</span><br><span class="line">    co &#x3D; checkout</span><br><span class="line">    br &#x3D; branch</span><br><span class="line">    mg &#x3D; merge</span><br><span class="line">    ci &#x3D; commit </span><br><span class="line">    md &#x3D; commit --amend</span><br><span class="line">    dt &#x3D; difftool</span><br><span class="line">    mt &#x3D; mergetool</span><br><span class="line">    last &#x3D; log -1 HEAD</span><br><span class="line">    cf &#x3D; config</span><br><span class="line">    line &#x3D; log --oneline</span><br><span class="line">    latest &#x3D; for-each-ref --sort&#x3D;-committerdate --format&#x3D;&#39;%(committerdate:short) %(refname:short) [%(committername)]&#39;</span><br><span class="line"></span><br><span class="line">    ls &#x3D; log --pretty&#x3D;format:\&quot;%C(yellow)%h %C(blue)%ad %C(red)%d %C(reset)%s %C(green)[%cn]\&quot; --decorate --date&#x3D;short</span><br><span class="line">    hist &#x3D; log --pretty&#x3D;format:\&quot;%C(yellow)%h %C(red)%d %C(reset)%s %C(green)[%an] %C(blue)%ad\&quot; --topo-order --graph --date&#x3D;short</span><br><span class="line">    type &#x3D; cat-file -t</span><br><span class="line">    dump &#x3D; cat-file -p</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/Git-Bash/" rel="tag"># Git Bash</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/29/blogcourse/" rel="prev" title="从零开始搭建博客git+hexo">
+      <i class="fa fa-chevron-left"></i> 从零开始搭建博客git+hexo
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）基础部分"><span class="nav-number">1.</span> <span class="nav-text">（一）基础部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）-库内的文件操作版本回退"><span class="nav-number">2.</span> <span class="nav-text">（二） 库内的文件操作版本回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）文件-章的增删改撤恢复"><span class="nav-number">3.</span> <span class="nav-text">（三）文件&#x2F;章的增删改撤恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（四）-关于分支"><span class="nav-number">4.</span> <span class="nav-text">（四） 关于分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（五）关于主题的"><span class="nav-number">5.</span> <span class="nav-text">（五）关于主题的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（六）升级HEXO包"><span class="nav-number">6.</span> <span class="nav-text">（六）升级HEXO包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（七）页面小工具"><span class="nav-number">7.</span> <span class="nav-text">（七）页面小工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置文章不在首页显示（我用的是新版next主题）"><span class="nav-number">7.1.</span> <span class="nav-text">设置文章不在首页显示（我用的是新版next主题）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置简写命令"><span class="nav-number">8.</span> <span class="nav-text">配置简写命令</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bin"
+      src="/images/bin.jpg">
+  <p class="site-author-name" itemprop="name">Bin</p>
+  <div class="site-description" itemprop="description">看的太远，连自己也追不上</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
+  </div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '79hElEkwReBL3ScleVwbnt9p-gzGzoHsz',
+      appKey     : 'm9uwl4UbmOWO3NkEUBCuVqV9',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+</body>
+</html>

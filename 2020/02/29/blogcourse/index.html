@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。hexo 版本：4.2.0Next 版本：7.7.1思路：还是用hexo吧，敲几行代码就可以搞定。如果使用各种客户端，总是会出现莫名其妙的错误，而且你也不知道哪错了。很是痛苦。 1、注册github博客空间打开网址github.com，注册过程不表。成功后，点击右上角小+，新建一个库，英文“New repository” 库的名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零开始搭建博客git+hexo">
+<meta property="og:url" content="http://yoursite.com/2020/02/29/blogcourse/index.html">
+<meta property="og:site_name" content="Bins">
+<meta property="og:description" content="博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。hexo 版本：4.2.0Next 版本：7.7.1思路：还是用hexo吧，敲几行代码就可以搞定。如果使用各种客户端，总是会出现莫名其妙的错误，而且你也不知道哪错了。很是痛苦。 1、注册github博客空间打开网址github.com，注册过程不表。成功后，点击右上角小+，新建一个库，英文“New repository” 库的名">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-29T13:47:11.000Z">
+<meta property="article:modified_time" content="2020-02-29T13:49:30.629Z">
+<meta property="article:author" content="Bin">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/29/blogcourse/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>从零开始搭建博客git+hexo | Bins</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?831ac77e3d6101966e21931331d59941";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Bins" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bins</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个行业的跌宕起伏</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ol"></i>时间线</a>
+
+  </li>
+        <li class="menu-item menu-item-biji">
+
+    <a href="/categories/biji/" rel="section"><i class="fa fa-fw fa-pencil"></i>想法</a>
+
+  </li>
+        <li class="menu-item menu-item-youji">
+
+    <a href="/categories/youji/" rel="section"><i class="fa fa-fw fa-leaf"></i>游记</a>
+
+  </li>
+        <li class="menu-item menu-item-zawen">
+
+    <a href="/categories/zawen/" rel="section"><i class="fa fa-fw fa-film"></i>杂文</a>
+
+  </li>
+        <li class="menu-item menu-item-ma">
+
+    <a href="/categories/ma/" rel="section"><i class="fa fa-fw fa-globe"></i>码</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/blogcourse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/bin.jpg">
+      <meta itemprop="name" content="Bin">
+      <meta itemprop="description" content="看的太远，连自己也追不上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bins">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从零开始搭建博客git+hexo
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-29 21:47:11 / 修改时间：21:49:30" itemprop="dateCreated datePublished" datetime="2020-02-29T21:47:11+08:00">2020-02-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ma/" itemprop="url" rel="index">
+                    <span itemprop="name">ma</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/29/blogcourse/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/blogcourse/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。<br>hexo 版本：4.2.0<br>Next 版本：7.7.1<br>思路：还是用hexo吧，敲几行代码就可以搞定。如果使用各种客户端，总是会出现莫名其妙的错误，而且你也不知道哪错了。很是痛苦。</p>
+<h3 id="1、注册github博客空间"><a href="#1、注册github博客空间" class="headerlink" title="1、注册github博客空间"></a>1、注册github博客空间</h3><p>打开网址github.com，注册过程不表。成功后，点击右上角小+，新建一个库，英文“New repository”</p>
+<p>库的名字，必须是“你的用户名.github.io”，这个名字千万不能错，每个库只能创建一个主页的库而且名字必须这样命名。如果成功，你打开这个库，看浏览器地址应该是：github.com/你的用户名/你的用户名.github.io</p>
+<p>点击”settings”：</p>
+<p><strong>Repository name（库名）</strong>，必须为：“你的用户名.github.io”</p>
+<p><strong>Custom domain</strong> ，如果你申请的有阿里云的域名，可以填进去，如果没有的话就算了。这一步完成后，所在的大项 GitHub Pages ，会告诉你博客的访问地址。类似于：http://你的用户名.github.io 或者你买的域名。就成功了。现在就可以按这个地址来访问。</p>
+<h3 id="2、申请域名（或可不用）"><a href="#2、申请域名（或可不用）" class="headerlink" title="2、申请域名（或可不用）"></a>2、申请域名（或可不用）</h3><p>去阿里云自行购买即可。购买完成后，需要解析。登陆阿里云后，点击控制台。拉到中间，点击“域名”。<br>找到自己的域名后，点击右边的选项：解析<br>点击“添加记录”，注意不要选A记录，选CNAME记录就可以了。把“你的用户名.github.io”填进去就好<br>注：A记录一般是添加IP地址，除非你自己有服务器。你挂到github上，地址老变，你得老改，太麻烦了。</p>
+<h3 id="3、用git和hexo搭建博客"><a href="#3、用git和hexo搭建博客" class="headerlink" title="3、用git和hexo搭建博客"></a>3、用git和hexo搭建博客</h3><h4 id="3-1-首先下载软件"><a href="#3-1-首先下载软件" class="headerlink" title="3.1 首先下载软件"></a>3.1 首先下载软件</h4><h5 id="A-下载git，即git-bush"><a href="#A-下载git，即git-bush" class="headerlink" title="A  下载git，即git bush"></a>A  下载git，即git bush</h5><p>建议到[Git官网]下载最新版本 <a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a><br><strong>生成密钥：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa –C &quot;你的邮箱地址&quot;   #生成密钥</span><br></pre></td></tr></table></figure>
+
+<p>之后会在C:\Users\你的管理员账户下，生成一个.ssh的文件夹，里面会生成id_rsa和id_rsa.pub两个文件。id_rsa是私钥（要保密），id_rsa.pub是公钥</p>
+<h5 id="B-安装hexo"><a href="#B-安装hexo" class="headerlink" title="B 安装hexo"></a>B 安装hexo</h5><p>可以在gitbush里：  npm install -g hexo</p>
+<h5 id="C-初始化"><a href="#C-初始化" class="headerlink" title="C 初始化"></a>C 初始化</h5><p>Git是分布式版本控制系统，它需要跟你的github远程账号互动，有两种方式，我用的是SSH。</p>
+<p>在电脑里建立好一个文件夹，这个文件夹里存放你的github内容。比如:”d:/github/myblog”<br>指定这个文件夹为库文件夹：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd d:&#x2F;github&#x2F;myblog         #打开这个文件夹</span><br><span class="line">git init  					#将这个文件夹初始化为库文件夹</span><br></pre></td></tr></table></figure>
+
+<p>完了会你的myblog会生成如下的文件夹：（解释每个文件夹啥意思）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.git			#历史版本文件，这个不要去动</span><br><span class="line">public			#这个文件夹所有的东西会被复制到远端</span><br><span class="line">scaffolds		#这里面都是模板文件,优化博客的时候会用到</span><br><span class="line">source			#包含了所有页面的文件夹</span><br><span class="line">	_post		#里面是博客文章，博客生成以后在这里修改</span><br><span class="line">themes			#主题文件夹</span><br><span class="line">_config.yml		#主配置文件</span><br></pre></td></tr></table></figure>
+
+<p>然后你执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>会生成你的静态页面，生成以后，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>开启本地预览，在浏览器里输入：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 如果能看到一个模板页面，就说明成功了。</p>
+<h5 id="D-与github账户连接"><a href="#D-与github账户连接" class="headerlink" title="D 与github账户连接"></a>D 与github账户连接</h5><p>首先打开id_rsa.pub，全选-复制一下。然后打开你的github账号，个人头像里的“settings”  &gt;   ”SSH and GPG keys”选项   &gt;  点击”New SSH Key”。把刚复制的粘进去。这样你如果本地修改好的文件，可以用“hexo d ”的命令同步到远端。</p>
+<p>现在基本工作已经准备好了。证明环境已经搭好，但还不是一个真正的博客。</p>
+<h4 id="3-2-博客出世"><a href="#3-2-博客出世" class="headerlink" title="3.2 博客出世"></a>3.2 博客出世</h4><h5 id="A-选一个主题吧"><a href="#A-选一个主题吧" class="headerlink" title="A 选一个主题吧"></a>A 选一个主题吧</h5><p>“NEXT”目前是使用排名第一的主题先用这个。后期玩明白了再说换的事儿。定位到你的库文件夹下，然后在gitbush：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>然后在themes下面会有一个next文件夹，这个就是你的主题了。下面要开始配置。打开库文件夹里的主配置文件_config.yml ，找到theme:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>然后找到  language：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language:  zh-CN     #主题文件夹下有个“zh-CN”文件夹，会显示页面目录的翻译</span><br></pre></td></tr></table></figure>
+
+<p>接下来大部分的配置都在next这里面设置</p>
+<h5 id="B-设置个性的目录"><a href="#B-设置个性的目录" class="headerlink" title="B 设置个性的目录"></a>B 设置个性的目录</h5><p><strong>a 策划你自己的目录</strong></p>
+<p>默认的页面显然不能满足你的需求，比如我就想建个笔记页面，打开主题的配置文件_config.yml，找到menu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || home</span><br><span class="line">  #about: &#x2F;about&#x2F; || user</span><br><span class="line">  tags: &#x2F;tags&#x2F; || tags</span><br><span class="line">  #categories: &#x2F;categories&#x2F; || th</span><br><span class="line">  archives: &#x2F;archives&#x2F; || list-ol</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat</span><br><span class="line">  biji: &#x2F;&#x2F;categories&#x2F;biji&#x2F; || pencil   #&#x2F;biji&#x2F;n1leader.html 这是单篇文章</span><br><span class="line">  youji: &#x2F;&#x2F;categories&#x2F;youji&#x2F; || leaf</span><br></pre></td></tr></table></figure>
+
+<p>about前面打了#，说明我不想显示这个目录，现在看到的显示5个页面，最下面两个是我新增的biji和youji</p>
+<p>比如#about: /about/ || user，格式为：“页面名称：/ 地址   ||  图标名”  </p>
+<p>因为我们的博文是放在_post文件夹下的，所以假如你在里面新建一个biji的文件夹，地址就换成“biji/”</p>
+<p>图标名指的是font-awesome图标名称，在<a href="https://www.bootcss.com/p/font-awesome/design.html" target="_blank" rel="noopener">https://www.bootcss.com/p/font-awesome/design.html</a> 可以查找自己想要的图标，然后填在这里就好了</p>
+<p><strong>b 在主题里配置目录</strong></p>
+<p>目录设计好了，但是它显示出来就需要翻译了，next文件夹下的languages文件夹下面，打开“zh-CN”，找到menu：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: 首页</span><br><span class="line"> ……</span><br><span class="line">  biji: 想法</span><br><span class="line">  youji: 游记</span><br><span class="line">  ……</span><br></pre></td></tr></table></figure>
+
+<p>注意，home: 首页，格式是 “页面名称: 翻译”。所以我的笔记页面，显示的就是“想法”。</p>
+<h5 id="C-写文章和发布"><a href="#C-写文章和发布" class="headerlink" title="C 写文章和发布"></a>C 写文章和发布</h5><p>在gitbush里，hexo new “yiciyouwan”  ，文章名最好不要用中文，这样在外链的时候会转成特别长的码。这时你发现在_post下面，有一个文件”yiciyouwan.md”。可以用markdown编辑器编一下。（我用的是Typora）。找开这个文件后大概是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 可复制的领导力</span><br><span class="line">date: </span><br><span class="line">tags: [领导力,读书笔记]</span><br><span class="line">categories: biji</span><br><span class="line">notshow: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>后几个是我加的，后面做优化的时候会用到。title里放的就是文章的标题。可以多整几篇文章。然后生成静态页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>如果没有报错error的话，基本上可以预览了： hexo  s</p>
+<p>这时候在本地预览里，可以看到新的页面。localhost:4000</p>
+<p>此时可以发布了： hexo d  。100%完毕后，稍等几分钟，打开你的域名就可以看到博客了。</p>
+<h3 id="4、优化或调整"><a href="#4、优化或调整" class="headerlink" title="4、优化或调整"></a>4、优化或调整</h3><p>以上步骤完成后，基本上博客的初稿就完成了。但是离理想中的还有一些差距。后期还要不断进行优化。基本上就是文章的管理和页面的优化。</p>
+<h4 id="4-1-新建文章及分组"><a href="#4-1-新建文章及分组" class="headerlink" title="4.1 新建文章及分组"></a>4.1 新建文章及分组</h4><p>一个博客里有很多篇文章，按照上述方法，这些文章默认是放在主页的，但同时这些文章还应该分门别类进入子页面里。这里是应用hexo的分类功能。打开博客\scaffolds，里的post.md，增加categories: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags:</span><br><span class="line">categories: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>这样，当你再用hexo new “文章名”  命令新建文章时，如果要把该文章放进biji(显示：想法)，那就打开“文章名.md”,在文件头找：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categories:  biji</span><br></pre></td></tr></table></figure>
+
+<p>与此同时，打开主题的主配置文件，找到menu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  biji: &#x2F;&#x2F;categories&#x2F;biji&#x2F; || pencil   #&#x2F;biji&#x2F;n1leader.html 这是单篇文章</span><br></pre></td></tr></table></figure>
+
+<p>biji的地址部分变成了：“/categories/biji/”，后面的biji就是你的标签名称，跟第二步对应。</p>
+<p>你的新文章就放到biji中去了。在页面中显示是这样的：</p>
+
+
+<h4 id="4-2-设置文章不在首页显示"><a href="#4-2-设置文章不在首页显示" class="headerlink" title="4.2 设置文章不在首页显示"></a>4.2 设置文章不在首页显示</h4><p>《我用的是新版next7.7.1主题》</p>
+<p>1、在文章头新建一个变量：notshow。也可以在post(<strong>\scaffolds</strong>)模板中改，以后可以自动生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 这是文章标题</span><br><span class="line">notshow: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>2、在主题文件夹下，<strong>layout\index.swig</strong>，定位到post代码块：<br>增加一个if条件，有批注的两行是我修改的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;posts-expand&quot;&gt;</span><br><span class="line">  &#123;%- for post in page.posts.toArray() %&#125;</span><br><span class="line">      &#123;% if post.notshow !&#x3D; true  %&#125; 	    #开始if</span><br><span class="line">           &#123;&#123; partial(&#39;_macro&#x2F;post.swig&#39;, &#123;post: post, is_index: true&#125;) &#125;&#125;</span><br><span class="line">      &#123;% endif %&#125; 						#结束if</span><br><span class="line">  &#123;%- endfor %&#125;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意，实际改的时候把注释去掉，否则“#开始if”会显示在你的页面最上方。</p>
+<h4 id="4-3-添加文章到某一个栏中"><a href="#4-3-添加文章到某一个栏中" class="headerlink" title="4.3 添加文章到某一个栏中"></a>4.3 添加文章到某一个栏中</h4><p>比如我要把某一篇文章加入到我的“笔记”这一栏里。</p>
+<h5 id="a-更改设置文件"><a href="#a-更改设置文件" class="headerlink" title="a 更改设置文件"></a>a 更改设置文件</h5><p>你的主题文件夹下的  <strong>_config.yml</strong>  找到menu菜单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">biji: &#x2F;&#x2F;categories&#x2F;biji&#x2F; || pencil</span><br></pre></td></tr></table></figure>
+
+<p>这句是我新增的，biji是我要加入栏目，把它的路径（原始/biji/）改成了“/categories/biji”。</p>
+<p>然后在打开主题里你选择的语言文件，<strong>languages/zh-CN.yml</strong> ，找到”menu”，在下面增加一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">biji: 笔记</span><br></pre></td></tr></table></figure>
+
+<h5 id="b-加入分类categories"><a href="#b-加入分类categories" class="headerlink" title="b 加入分类categories"></a>b 加入分类categories</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 你的文章标题</span><br><span class="line">categories: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>也可以用更改post中的格式，加入这一行。</p>
+<p>同样的，可以用相同的方法把文章加入到其它页面。</p>
+<h4 id="4-4-添加阅读与访问量统计"><a href="#4-4-添加阅读与访问量统计" class="headerlink" title="4.4 添加阅读与访问量统计"></a>4.4 添加阅读与访问量统计</h4><p>打开主题配置文件，搜索到  busuanzi_count: 更改 enable的值为: true。即可，页面上就会有小眼睛</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5、更新及DeBug"><a href="#5、更新及DeBug" class="headerlink" title="5、更新及DeBug"></a>5、更新及DeBug</h3><h4 id="5-1-每次要重设自义域名"><a href="#5-1-每次要重设自义域名" class="headerlink" title="5.1 每次要重设自义域名"></a>5.1 每次要重设自义域名</h4><p>每次更新以后你的自定义用户名可能点不进去。因为需要在你的github博客库（用户名.github.io）设置里，重新输入你的自定义域名。解决：</p>
+<blockquote>
+<p>在你的source文件夹下，建议一个文件，名为“CNAME”无后缀</p>
+<p>用记事本打开，输入你的自定义域名：比如我的就是nidebin.top  然后应用再更新即可</p>
+</blockquote>
+<h4 id="5-1-spawn-failed解决办法"><a href="#5-1-spawn-failed解决办法" class="headerlink" title="5.1 spawn failed解决办法"></a>5.1 spawn failed解决办法</h4><p>发生布署错误后，不要慌。执行下列命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-3-load-failed-hexo-leancloud-counter-security"><a href="#5-3-load-failed-hexo-leancloud-counter-security" class="headerlink" title="5.3 load failed: hexo-leancloud-counter-security"></a>5.3 load failed: hexo-leancloud-counter-security</h4><p>hexo-leancloud-counter-security该插件加载错误<br>在hexo博客中hexo g 以后出现的：</p>
+<blockquote>
+<p>ERROR Plugin load failed: hexo-leancloud-counter-security<br>Error: Cannot find module ‘babel-runtime/regenerator’<br>Require stack:<br>ERROR Plugin load failed: hexo-leancloud-counter-security</p>
+</blockquote>
+<p>解决办法,（博客根目录中）在package.json中加入依赖label-runtime :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">&quot;babel-runtime&quot;: &quot;^6.26.0&quot;,</span><br></pre></td></tr></table></figure>
+
+<p>然后支行git bush ,以修复package里的包们：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-4-修改错误及版本回滚"><a href="#5-4-修改错误及版本回滚" class="headerlink" title="5.4 修改错误及版本回滚"></a>5.4 修改错误及版本回滚</h4>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/23/yuanfang/" rel="prev" title="远方到底有什么">
+      <i class="fa fa-chevron-left"></i> 远方到底有什么
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/29/Gitorders/" rel="next" title="关于git Bash的命令行：笔记">
+      关于git Bash的命令行：笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、注册github博客空间"><span class="nav-number">1.</span> <span class="nav-text">1、注册github博客空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、申请域名（或可不用）"><span class="nav-number">2.</span> <span class="nav-text">2、申请域名（或可不用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、用git和hexo搭建博客"><span class="nav-number">3.</span> <span class="nav-text">3、用git和hexo搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-首先下载软件"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 首先下载软件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#A-下载git，即git-bush"><span class="nav-number">3.1.1.</span> <span class="nav-text">A  下载git，即git bush</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#B-安装hexo"><span class="nav-number">3.1.2.</span> <span class="nav-text">B 安装hexo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#C-初始化"><span class="nav-number">3.1.3.</span> <span class="nav-text">C 初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#D-与github账户连接"><span class="nav-number">3.1.4.</span> <span class="nav-text">D 与github账户连接</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-博客出世"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 博客出世</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#A-选一个主题吧"><span class="nav-number">3.2.1.</span> <span class="nav-text">A 选一个主题吧</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#B-设置个性的目录"><span class="nav-number">3.2.2.</span> <span class="nav-text">B 设置个性的目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#C-写文章和发布"><span class="nav-number">3.2.3.</span> <span class="nav-text">C 写文章和发布</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、优化或调整"><span class="nav-number">4.</span> <span class="nav-text">4、优化或调整</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-新建文章及分组"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 新建文章及分组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-设置文章不在首页显示"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 设置文章不在首页显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-添加文章到某一个栏中"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 添加文章到某一个栏中</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-更改设置文件"><span class="nav-number">4.3.1.</span> <span class="nav-text">a 更改设置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-加入分类categories"><span class="nav-number">4.3.2.</span> <span class="nav-text">b 加入分类categories</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-添加阅读与访问量统计"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 添加阅读与访问量统计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、更新及DeBug"><span class="nav-number">5.</span> <span class="nav-text">5、更新及DeBug</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-每次要重设自义域名"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 每次要重设自义域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-spawn-failed解决办法"><span class="nav-number">5.2.</span> <span class="nav-text">5.1 spawn failed解决办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-load-failed-hexo-leancloud-counter-security"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 load failed: hexo-leancloud-counter-security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-修改错误及版本回滚"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 修改错误及版本回滚</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Bin"
+      src="/images/bin.jpg">
+  <p class="site-author-name" itemprop="name">Bin</p>
+  <div class="site-description" itemprop="description">看的太远，连自己也追不上</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
+  </div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '79hElEkwReBL3ScleVwbnt9p-gzGzoHsz',
+      appKey     : 'm9uwl4UbmOWO3NkEUBCuVqV9',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+</body>
+</html>
