@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-29T13:50:55.034Z</updated>
+  <updated>2020-02-29T13:59:34.752Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="http://yoursite.com/2020/02/29/Gitorders/"/>
     <id>http://yoursite.com/2020/02/29/Gitorders/</id>
     <published>2020-02-29T13:47:11.000Z</published>
-    <updated>2020-02-29T13:50:55.034Z</updated>
+    <updated>2020-02-29T13:59:34.752Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;gitbush的学习笔记整理。也可以参考：&lt;a href=&quot;https://baoyuzhang.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://baoyuzhang.github.io/&lt;/a&gt; 
-        
-      
+      &lt;p&gt;gitbush的学习笔记整理。也可以参考：&lt;a href=&quot;https://baoyuzhang.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://baoyuzhang.github.io/&lt;/a&gt;  里面有个（一）（二）（三）。此处的命令是根据里面的学习形成的学习记录。&lt;/p&gt;
     
     </summary>
     
@@ -50,17 +44,11 @@
     <link href="http://yoursite.com/2020/02/29/blogcourse/"/>
     <id>http://yoursite.com/2020/02/29/blogcourse/</id>
     <published>2020-02-29T13:47:11.000Z</published>
-    <updated>2020-02-29T13:49:30.629Z</updated>
+    <updated>2020-02-29T13:59:14.463Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。&lt;br&gt;hexo 版本：4.2.0&lt;br&gt;Next
-        
-      
+      &lt;p&gt;博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。&lt;br&gt;hexo 版本：4.2.0&lt;br&gt;Next 版本：7.7.1&lt;br&gt;思路：还是用hexo吧，敲几行代码就可以搞定。如果使用各种客户端，总是会出现莫名其妙的错误，而且你也不知道哪错了。很是痛苦。&lt;/p&gt;
     
     </summary>
     
