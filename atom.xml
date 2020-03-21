@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-29T13:59:34.752Z</updated>
+  <updated>2020-03-21T04:47:10.180Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于git Bash的命令行：笔记</title>
+    <title>关于git Bash的命令行[笔记]</title>
     <link href="http://yoursite.com/2020/02/29/Gitorders/"/>
     <id>http://yoursite.com/2020/02/29/Gitorders/</id>
     <published>2020-02-29T13:47:11.000Z</published>
-    <updated>2020-02-29T13:59:34.752Z</updated>
+    <updated>2020-03-21T04:47:10.180Z</updated>
     
     <summary type="html">
     
@@ -40,15 +40,15 @@
   </entry>
   
   <entry>
-    <title>从零开始搭建博客git+hexo</title>
+    <title>博客搭建全攻略git+hexo</title>
     <link href="http://yoursite.com/2020/02/29/blogcourse/"/>
     <id>http://yoursite.com/2020/02/29/blogcourse/</id>
     <published>2020-02-29T13:47:11.000Z</published>
-    <updated>2020-02-29T13:59:14.463Z</updated>
+    <updated>2020-03-21T04:46:39.112Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。&lt;br&gt;hexo 版本：4.2.0&lt;br&gt;Next 版本：7.7.1&lt;br&gt;思路：还是用hexo吧，敲几行代码就可以搞定。如果使用各种客户端，总是会出现莫名其妙的错误，而且你也不知道哪错了。很是痛苦。&lt;/p&gt;
+      &lt;p&gt;博客折腾了好久，也看了好多贴子，稍微整理一个较全的给大家，可持续更新。&lt;br&gt;思路：还是用hexo吧，敲几行代码就可以搞定。如果使用各种客户端，总是会出现莫名其妙的错误，而且你也不知道哪错了。很是痛苦。&lt;br&gt;对一下软件版本号：hexo  4.2.0 ，  Next  7.7.1 。&lt;/p&gt;
     
     </summary>
     
@@ -69,7 +69,7 @@
     <link href="http://yoursite.com/2020/02/23/yuanfang/"/>
     <id>http://yoursite.com/2020/02/23/yuanfang/</id>
     <published>2020-02-23T10:25:31.000Z</published>
-    <updated>2020-02-29T03:06:02.442Z</updated>
+    <updated>2020-03-21T04:47:26.666Z</updated>
     
     <summary type="html">
     
@@ -134,11 +134,11 @@
   </entry>
   
   <entry>
-    <title>公司和产品有何区别：读书</title>
+    <title>公司和产品有何区别[读书]</title>
     <link href="http://yoursite.com/2020/02/19/Culturebuit/"/>
     <id>http://yoursite.com/2020/02/19/Culturebuit/</id>
     <published>2020-02-19T02:53:23.338Z</published>
-    <updated>2020-02-29T03:08:03.189Z</updated>
+    <updated>2020-03-21T04:46:56.977Z</updated>
     
     <summary type="html">
     
@@ -160,11 +160,11 @@
   </entry>
   
   <entry>
-    <title>可复制的领导力：读书</title>
+    <title>可复制的领导力[读书]</title>
     <link href="http://yoursite.com/2020/02/15/ledership/"/>
     <id>http://yoursite.com/2020/02/15/ledership/</id>
     <published>2020-02-15T13:03:14.297Z</published>
-    <updated>2020-02-29T03:06:47.119Z</updated>
+    <updated>2020-03-21T04:47:21.292Z</updated>
     
     <summary type="html">
     
